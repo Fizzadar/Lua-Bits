@@ -1,7 +1,7 @@
 --[[
 	this creates a listening server on the port specified in arg[1] (ie lua nonBlockSockets.lua <portnumber>)
 
-	appears to be FASTER than nodeJS for socket communication, benchmark below (changed the exit command from "test" to "User-Agent: ApacheBench/2.3"):
+	appears to be FASTER than nodeJS for socket communication, benchmark below (changed the exit command from "test" to "User-Agent: ApacheBench/2.3", line 81):
 
 
 	Nicks-iMac:bits nick$ ab -n 10000 -c 30 http://127.0.0.1:8080/
@@ -78,7 +78,7 @@ while true do
 			for c, d in pairs( client.data ) do
 				print( d ) --print for debug
 				--if the client sends "test" we send back "hello world" and drop connection
-				if d == 'User-Agent: ApacheBench/2.3' then
+				if d == 'test' then
 					client.socket:send( 'hello world\n' )
 					client.ending = true
 				end
