@@ -1,3 +1,5 @@
+#!/usr/bin/env lua
+
 --[[
 	this creates a listening server on the port specified in arg[1] (ie lua nonBlockSockets.lua <portnumber>)
 

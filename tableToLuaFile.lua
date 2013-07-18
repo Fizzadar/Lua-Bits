@@ -1,7 +1,10 @@
+#!/usr/bin/env lua
+
 --[[
     turn a lua table into lua code
         function values are run and the result is written to string
 ]]
+--turn a lua table into lua code
 local function tableToLua( table, indent )
     indent = indent or 0
     local out = ''
@@ -12,7 +15,11 @@ local function tableToLua( table, indent )
             out = out .. '\t'
         end
         if type( v ) == 'table' then
-            out = out .. k .. ' = {' .. tableToLua( v, indent + 1 ) .. '\n'
+            if type( k ) == 'string' and k:find( '%.' ) then
+                out = out .. '[\'' .. k .. '\'] = {' .. tableToLua( v, indent + 1 ) .. '\n'
+            else
+                out = out .. k .. ' = {' .. tableToLua( v, indent + 1 ) .. '\n'
+            end
             for i = 0, indent do
                 out = out .. '\t'
             end
