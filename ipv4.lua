@@ -1,7 +1,7 @@
 #!/usr/bin/env lua
 
 --[[
-	usage: ./lpv4.lua 1.2.3.4/29
+	usage: ./ipv4.lua 1.2.3.4/29
 
 	output:
 		Nicks-MacBook-Air:bits Fizzadar$ ./ipv4.lua 31.4.255.200/15
