@@ -60,13 +60,13 @@ for k, v in pairs( ipbits ) do
 end
 if zeroblock and #ipbits < 8 then
 	--remove zeroblock
-	ipbits[zeroblock] = nil
+	ipbits[zeroblock] = '0000'
 	local padding = 8 - #ipbits
-	for i = 0, padding do
+	
+	for i = 1, padding do
 		table.insert( ipbits, zeroblock, '0000' )
 	end
 end
-
 
 --generate wildcard from mask
 local indent = mask / 4
@@ -116,8 +116,10 @@ local ipcount = math.pow( 2, 128 - mask )
 
 
 --output
+print()
 print( '###### INFO ######' )
 print( 'IP in: ' .. ip )
+print( '=> Expanded IP: ' .. ipbits[1] .. ':' .. ipbits[2] .. ':' .. ipbits[3] .. ':' .. ipbits[4] .. ':' .. ipbits[5] .. ':' .. ipbits[6] .. ':' .. ipbits[7] .. ':' .. ipbits[8] )
 print( 'Mask in: /' .. mask )
 print( '=> Mask Wildcard: ' .. wildcard[1] .. ':' .. wildcard[2] .. ':' .. wildcard[3] .. ':' .. wildcard[4] .. ':' .. wildcard[5] .. ':' .. wildcard[6] .. ':' .. wildcard[7] .. ':' .. wildcard[8] )
 
