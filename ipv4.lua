@@ -98,6 +98,7 @@ local isnetworkip = ( ip[1] == bottomip[1] and ip[2] == bottomip[2] and ip[3] ==
 local isbroadcastip = ( ip[1] == topip[1] and ip[2] == topip[2] and ip[3] == topip[3] and ip[4] == topip[4] )
 
 --output
+print()
 print( '###### INFO ######' )
 print( 'IP in: ' .. ip[1] .. '.' .. ip[2] .. '.' .. ip[3] .. '.' .. ip[4]  )
 print( 'Mask in: /' .. mask )
